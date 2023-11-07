@@ -55,3 +55,22 @@ index 8fb94c5..bbfb93a 100644
          </Flex>
        </Box>
      </div>
+diff --git a/node_modules/@strapi/admin/admin/src/pages/HomePage/index.js b/node_modules/@strapi/admin/admin/src/pages/HomePage/index.js
+index 21ab701..268359d 100644
+--- a/node_modules/@strapi/admin/admin/src/pages/HomePage/index.js
++++ b/node_modules/@strapi/admin/admin/src/pages/HomePage/index.js
+@@ -78,14 +78,6 @@ export const HomePageCE = () => {
+               />
+             </GridItem>
+           </Grid>
+-          <Grid gap={6}>
+-            <GridItem col={8} s={12}>
+-              {showGuidedTour ? <GuidedTourHomepage /> : <ContentBlocks />}
+-            </GridItem>
+-            <GridItem col={4} s={12}>
+-              <SocialLinks />
+-            </GridItem>
+-          </Grid>
+         </Box>
+       </Main>
+     </Layout>
