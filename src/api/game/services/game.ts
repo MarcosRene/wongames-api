@@ -4,6 +4,7 @@
 import axios from "axios";
 import { JSDOM } from "jsdom";
 import slugify from "slugify";
+import qs from "querystring";
 import { factories } from "@strapi/strapi";
 
 const gameService = "api::game.game";
@@ -210,7 +211,9 @@ export default factories.createCoreService("api::game.game", () => ({
       const {
         data: { products },
       } = await axios.get(
-        `https://catalog.gog.com/v1/catalog?limit=48&order=desc%3Atrending`
+        `https://catalog.gog.com/v1/catalog?${qs.stringify({
+          params,
+        })}`
       );
 
       await createManyToManyData(products);
