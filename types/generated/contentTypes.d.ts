@@ -941,6 +941,36 @@ export interface ApiPublisherPublisher extends Schema.CollectionType {
   };
 }
 
+export interface ApiRecommendedRecommended extends Schema.SingleType {
+  collectionName: 'recommendeds';
+  info: {
+    singularName: 'recommended';
+    pluralName: 'recommendeds';
+    displayName: 'Recommended';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    section: Attribute.Component<'page.popular-games'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::recommended.recommended',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::recommended.recommended',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -964,6 +994,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::platform.platform': ApiPlatformPlatform;
       'api::publisher.publisher': ApiPublisherPublisher;
+      'api::recommended.recommended': ApiRecommendedRecommended;
     }
   }
 }

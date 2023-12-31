@@ -38,9 +38,10 @@ export interface PagePopularGames extends Schema.Component {
   info: {
     displayName: 'popularGames';
     icon: 'sun';
+    description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String;
     highlight: Attribute.Component<'page.highlight'>;
     games: Attribute.Relation<
       'page.popular-games',
